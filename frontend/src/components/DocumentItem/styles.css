@@ -1,0 +1,38 @@
+.document-container {
+  width: 30rem;
+  height: 15rem;
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 8px #00000040;
+  transition: box-shadow 0.2s;
+}
+
+.document-container:hover {
+  box-shadow: 0 0 10px #00000080;
+}
+
+.document-container header {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-primary);
+  color: var(--color-text-in-dark);
+
+  font-family: 'Oxygen', sans-serif;
+  font-weight: bold;
+}
+
+.document-container main img {
+  width: 100%;
+  height: 10rem;
+}

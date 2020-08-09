@@ -1,0 +1,193 @@
+#page-view-document {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#page-view-document .header-button {
+  padding: 0.4rem;
+  border: 0;
+  border-radius: 0.8rem;
+  background-color: transparent;
+  color: var(--color-text-in-dark);
+  outline: none;
+  cursor: pointer;
+
+  display: flex;
+}
+
+#page-view-document .header-button:hover {
+  background-color: #fff;
+  color: var(--color-text-in-white);
+}
+
+#page-view-document .page-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#page-view-document main {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+#page-view-document .pdf-container {
+  width: 100%;
+}
+
+#page-view-document .pdf-container .pdf-renderer {
+  width: 100%;
+  height: calc(100vh - 10rem);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+}
+
+#page-view-document .pdf-page {
+  box-shadow: 0 0 8px #00000040;
+}
+
+#page-view-document .sidebar {
+  width: 300px;
+  height: calc(100vh - 10rem);
+
+  z-index: 1;
+  position: absolute;
+
+  background-color: #00b2ca;
+  box-shadow: 0 0 4px #00000050;
+
+  transition: width 0.5s;
+}
+
+#page-view-document .sidebar .sidebar-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 5rem 2rem;
+
+  transition: transform 0.5s;
+}
+
+#page-view-document .sidebar-closed {
+  width: 0;
+}
+
+#page-view-document .sidebar-closed .sidebar-container {
+  transform: translateX(-300px);
+}
+
+#page-view-document .sidebar header {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  color: var(--color-text-in-dark);
+}
+
+#page-view-document .sidebar .bookmarks-list {
+  list-style: none;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+}
+
+#page-view-document .sidebar .bookmarks-list > li {
+  width: 70%;
+  margin: 0.2rem 0;
+  padding-left: 1rem;
+  border-radius: 0.4rem;
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s;
+}
+
+#page-view-document .sidebar .bookmarks-list > li:hover {
+  background: #00000040;
+}
+
+#page-view-document .sidebar .bookmarks-list > li:hover .bookmark-delete {
+  background: #fff;
+  color: var(--color-text-in-white);
+}
+
+#page-view-document .sidebar .bookmarks-list button {
+  font-size: 1.6rem;
+  font-family: var(--button-font);
+  line-height: 2.8rem;
+
+  background: transparent;
+  color: var(--color-text-in-dark);
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-view-document .sidebar .bookmarks-list .bookmark-link {
+  width: 100%;
+}
+
+#page-view-document .sidebar .bookmarks-list .bookmark-delete {
+  padding: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-view-document .sidebar .bookmarks-list > li:hover .bookmark-delete:hover {
+  color: var(--color-danger);
+}
+
+@media (min-width: 700px) {
+  #page-view-document .pdf-page {
+    width: fit-content;
+  }
+
+  #page-view-document .sidebar {
+    width: 400px;
+
+    z-index: initial;
+    position: initial;
+  }
+
+  #page-view-document .sidebar-closed {
+    width: 0;
+  }
+
+  #page-view-document .sidebar-closed .sidebar-container {
+    transform: translateX(-400px);
+  }
+}

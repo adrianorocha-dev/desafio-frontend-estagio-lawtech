@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&family=Oxygen:wght@400;700&display=swap');
+
+:root {
+  font-size: 60%;
+
+  --color-primary: #6874e8;
+  --color-secondary: #00b2ca;
+  --color-danger: #f75656;
+  --color-background-light: #fffcf7;
+  --color-text-in-light: #000000;
+  --color-text-in-dark: #ffffff;
+
+  --text-font: 'Hind', sans-serif;
+  --button-font: 'Oxygen', sans-serif;
+
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100vh;
+}
+
+body {
+  background-color: var(--color-background-light);
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body,
+input,
+button {
+  font-weight: 500;
+  font-size: 1.6em;
+  font-family: var(--text-font);
+  color: var(--color-text-in-light);
+}
+
+.container {
+  width: 90vw;
+  max-width: 700px;
+}
+
+@media (min-width: 700px) {
+  :root {
+    font-size: 62.5%;
+  }
+}

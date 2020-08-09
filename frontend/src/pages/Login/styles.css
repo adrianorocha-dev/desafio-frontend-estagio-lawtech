@@ -1,0 +1,142 @@
+#page-login {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-primary);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-login .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-login .hero-img {
+  width: 50%;
+}
+
+#page-login .logo-img {
+  width: 50%;
+  margin-top: 1.5rem;
+}
+
+#page-login .login-form {
+  width: 80%;
+  margin-top: 3.6rem;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#page-login .login-form input {
+  font-size: 2rem;
+  line-height: 3.6rem;
+  font-family: var(--button-font);
+
+  padding: 1rem 2.6rem;
+  border: none;
+  border-radius: 0.8rem;
+  outline: none;
+
+  transition: box-shadow 0.2s;
+}
+
+#page-login .login-form input + input {
+  margin: 2rem 0;
+}
+
+#page-login .login-form input:focus {
+  box-shadow: 0 0 8px #00000080;
+}
+
+#page-login .login-form button {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 3.6rem;
+  font-family: var(--button-font);
+
+  color: var(--color-text-in-dark);
+  background-color: var(--color-secondary);
+
+  border: none;
+  border-radius: 0.8rem;
+  padding: 1rem 0;
+  outline: none;
+
+  cursor: pointer;
+  transition: box-shadow 0.5s;
+}
+
+#page-login .login-form button:hover {
+  box-shadow: 0 0 8px #00000080;
+}
+
+#page-login footer {
+  width: 80%;
+
+  color: var(--color-text-in-dark);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+
+  margin-top: 1rem;
+}
+
+#page-login footer a {
+  display: flex;
+  align-items: center;
+
+  color: var(--color-text-in-dark);
+  text-decoration: none;
+
+  transition: color 0.2s;
+}
+
+#page-login footer a:hover {
+  color: var(--color-secondary);
+}
+
+#page-login footer a span {
+  margin: 0.4rem;
+}
+
+@media (min-width: 750px) {
+  #page-login-content.container {
+    max-width: 1100px;
+
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'logo hero'
+      'form hero'
+      'footer hero';
+  }
+
+  #page-login .logo-img {
+    grid-area: logo;
+    align-self: center;
+    justify-self: center;
+    margin: 0;
+  }
+
+  #page-login .hero-img {
+    grid-area: hero;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #page-login .login-form {
+    grid-area: form;
+    align-self: center;
+    justify-self: center;
+  }
+
+  #page-login footer {
+    grid-area: footer;
+    justify-self: center;
+  }
+}
