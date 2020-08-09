@@ -2,11 +2,10 @@ import 'reflect-metadata';
 import express from 'express';
 import cors from 'cors';
 import { createConnection } from 'typeorm';
-
-import routes from './routes';
-
 import dotenv from 'dotenv';
 import path from 'path';
+
+import routes from './routes';
 
 dotenv.config({ path: path.resolve(__dirname, '.env') });
 
