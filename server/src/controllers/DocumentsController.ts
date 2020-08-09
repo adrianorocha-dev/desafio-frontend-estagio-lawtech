@@ -32,8 +32,12 @@ export default class DocumentsController {
     const user = await userRepository.findOne(request.userId);
     const document = await documentRepository.findOne({
       where: { id: documentId },
-      relations: ['owner'],
+      relations: ['owner', 'bookmarks'],
     });
+
+    if (!document) {
+      return response.status(404).send();
+    }
 
     if (document.owner.id !== user.id) {
       return response.status(401).json({ error: 'Not authorized' });
@@ -41,7 +45,8 @@ export default class DocumentsController {
 
     const serializedFile = {
       name: document.name,
-      downloadLink: `http://localhost:3333/uploads/${document.filePath}`,
+      bookmarks: document.bookmarks,
+      downloadLink: `http://192.168.31.240:3333/uploads/${document.filePath}`,
     };
 
     return response.json(serializedFile);

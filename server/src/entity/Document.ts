@@ -1,6 +1,14 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 
 import { User } from './User';
+import { Bookmark } from './Bookmark';
 
 @Entity()
 export class Document {
@@ -18,4 +26,11 @@ export class Document {
     onDelete: 'SET NULL',
   })
   owner: User;
+
+  @OneToMany(type => Bookmark, bookmark => bookmark.document, {
+    onUpdate: 'CASCADE',
+    onDelete: 'CASCADE',
+  })
+  @JoinColumn()
+  bookmarks: Bookmark[];
 }

@@ -35,7 +35,7 @@ export default class UserController {
     }
   }
 
-  async detail(request: Request, response: Response) {
+  async authenticate(request: Request, response: Response) {
     const { email, password } = request.body;
 
     const connection = getConnection();
@@ -44,11 +44,11 @@ export default class UserController {
     const user = await userRepository.findOne({ where: { email } });
 
     if (!user) {
-      return response.status(400).json({ error: 'User not found' });
+      return response.status(404).json({ error: 'User not found' });
     }
 
     if (!(await bcrypt.compare(password, user.password))) {
-      return response.status(400).json({ error: 'Invalid password' });
+      return response.status(401).json({ error: 'Invalid password' });
     }
 
     const token = generateToken({ id: user.id });
