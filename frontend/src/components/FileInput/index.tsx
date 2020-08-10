@@ -7,7 +7,6 @@ type Props = {
 };
 
 const FileInput: React.FC<Props> = ({ className, onChange }) => {
-  console.log('rendered');
   const inputRef = useRef<HTMLInputElement>(null);
 
   function handleSelectFile() {
