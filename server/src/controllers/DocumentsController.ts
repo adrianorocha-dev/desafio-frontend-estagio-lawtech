@@ -19,6 +19,10 @@ export default class DocumentsController {
       relations: ['documents'],
     });
 
+    if (!user) {
+      return response.status(401).json({ error: 'User not authenticated' });
+    }
+
     return response.json(user);
   }
 
@@ -30,6 +34,11 @@ export default class DocumentsController {
     const documentRepository = connection.getRepository(Document);
 
     const user = await userRepository.findOne(request.userId);
+
+    if (!user) {
+      return response.status(401).json({ error: 'User not authenticated' });
+    }
+
     const document = await documentRepository.findOne({
       where: { id: documentId },
       relations: ['owner', 'bookmarks'],
