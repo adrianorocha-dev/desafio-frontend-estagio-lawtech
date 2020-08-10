@@ -71,7 +71,11 @@ const DocumentsList: React.FC = () => {
       <div className="welcome-container">
         <section>
           <p>Bem-vindo, {auth.user?.email}.</p>
-          <p>Aqui estão seus documentos.</p>
+          <p>
+            {documents.length > 0
+              ? 'Aqui estão seus documentos.'
+              : 'Você ainda não importou nenhum documento.'}
+          </p>
         </section>
 
         <FileInput
