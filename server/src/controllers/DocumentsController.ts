@@ -55,7 +55,7 @@ export default class DocumentsController {
     const serializedFile = {
       name: document.name,
       bookmarks: document.bookmarks,
-      downloadLink: `http://192.168.31.240:3333/uploads/${document.filePath}`,
+      downloadLink: `${process.env.APP_URL}/uploads/${document.filePath}`,
     };
 
     return response.json(serializedFile);

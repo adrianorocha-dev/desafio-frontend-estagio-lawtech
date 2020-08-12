@@ -7,7 +7,7 @@ export default {
     destination: path.resolve(__dirname, '..', '..', 'uploads'),
     filename: (request, file, callback) => {
       try {
-        const hash = crypto.randomBytes(6).toString('hex');
+        const hash = crypto.randomBytes(16).toString('hex');
 
         const filename = `${hash}_${file.originalname}`;
 

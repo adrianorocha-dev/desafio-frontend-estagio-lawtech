@@ -18,5 +18,5 @@ app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 app.use(routes);
 
 createConnection()
-  .then(() => app.listen(3333))
+  .then(() => app.listen(process.env.PORT ?? 3333))
   .catch(error => console.warn(error));
